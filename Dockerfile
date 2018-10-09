@@ -1,6 +1,5 @@
 FROM eosio/builder as builder
 ARG branch=master
-ARG version=v1.2.1
 ARG symbol=SYS
 
 # Clone eosio.cdt
@@ -9,7 +8,6 @@ RUN git clone -b ${branch} https://github.com/eosio/eosio.cdt --recursive
 
 # Checkout eosio.cdt
 WORKDIR /opt/eosio.cdt
-RUN git checkout ${version}
 RUN git submodule update --recursive
 
 # Build eosio.cdt
