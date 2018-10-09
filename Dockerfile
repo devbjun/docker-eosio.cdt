@@ -24,3 +24,11 @@ COPY --from=builder /usr/local/eosio.cdt /usr/local/eosio.cdt
 COPY --from=builder /usr/local/include/boost/* /usr/local/eosio.cdt/boost/
 ENV LD_LIBRARY_PATH /usr/local/lib
 ENV PATH /usr/local/eosio.cdt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+# Prepare contracts volume
+WORKDIR /opt
+RUN mkdir eosio.cdt
+WORKDIR /opt/eosio.cdt
+RUN mkdir /contracts
+
+VOLUME ["/opt/eosio.cdt/contracts/"]
