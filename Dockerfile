@@ -19,5 +19,8 @@ RUN ./install.sh
 # Making eosio.cdt latest images
 FROM ubuntu:18.04
 RUN apt-get update && rm -rf /var/lib/apt/lists/*
+COPY --from=builder /usr/local/lib/* /usr/local/lib/
 COPY --from=builder /usr/local/eosio.cdt /usr/local/eosio.cdt
+COPY --from=builder /usr/local/include/boost/* /usr/local/eosio.cdt/boost/
+ENV LD_LIBRARY_PATH /usr/local/lib
 ENV PATH /usr/local/eosio.cdt/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
