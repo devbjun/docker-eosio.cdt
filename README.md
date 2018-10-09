@@ -1,5 +1,5 @@
 # **Docker for eosio.cdt** #
 Image with eosio.cdt for building eosio contracts.
 
-How to build: `docker build . -t eosio.cdt .`
+How to build: `docker build . -t eosio.cdt .`  
 Example of running: `docker run -v REAL_CONTRACTS_ABSOLUTE_PATH/contracts:/contracts -w /contracts -i devbjune/eosio.cdt:latest eosio-cpp ./hello.cpp -o ./build/hello.wasm --abigen`
